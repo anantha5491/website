@@ -1,0 +1,47 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+/* @font-face{
+  font-family:"dijkstra";
+  src:url("https://candyfonts.com/wp-data/2020/09/18/113932/dijkstra.ttf") format("woff"),
+  url("https://candyfonts.com/wp-data/2020/09/18/113932/dijkstra.ttf") format("opentype"),
+  url("https://candyfonts.com/wp-data/2020/09/18/113932/dijkstra.ttf") format("truetype");
+} */
+/* kalam-regular - latin */
+/* kalam-regular - latin */
+
+@font-face {
+  font-family: 'TuckOutline';
+  src: url('../src/font/TuckShop-Outline.otf');
+
+}
+@font-face {
+  font-family: 'TuckRegular';
+  src: url('../src/font/TuckShop-Regular.otf');
+
+}
+
+
+
