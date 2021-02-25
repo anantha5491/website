@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/website/static/css/main.e33703e5.chunk.css",
+    "main.js": "/website/static/js/main.1728fb5d.chunk.js",
+    "main.js.map": "/website/static/js/main.1728fb5d.chunk.js.map",
+    "runtime-main.js": "/website/static/js/runtime-main.1565b4af.js",
+    "runtime-main.js.map": "/website/static/js/runtime-main.1565b4af.js.map",
+    "static/css/2.29062eef.chunk.css": "/website/static/css/2.29062eef.chunk.css",
+    "static/js/2.3512cafe.chunk.js": "/website/static/js/2.3512cafe.chunk.js",
+    "static/js/2.3512cafe.chunk.js.map": "/website/static/js/2.3512cafe.chunk.js.map",
+    "static/js/3.8cd70d93.chunk.js": "/website/static/js/3.8cd70d93.chunk.js",
+    "static/js/3.8cd70d93.chunk.js.map": "/website/static/js/3.8cd70d93.chunk.js.map",
+    "index.html": "/website/index.html",
+    "static/css/2.29062eef.chunk.css.map": "/website/static/css/2.29062eef.chunk.css.map",
+    "static/css/main.e33703e5.chunk.css.map": "/website/static/css/main.e33703e5.chunk.css.map",
+    "static/js/2.3512cafe.chunk.js.LICENSE.txt": "/website/static/js/2.3512cafe.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/website/static/media/TuckShop-Regular.1f05ade3.otf",
+    "static/media/anantha2.69fa5cc3.png": "/website/static/media/anantha2.69fa5cc3.png",
+    "static/media/ananthaColor.efa4544e.png": "/website/static/media/ananthaColor.efa4544e.png",
+    "static/media/black.1abac59e.jpg": "/website/static/media/black.1abac59e.jpg",
+    "static/media/board.005c0fe0.jpg": "/website/static/media/board.005c0fe0.jpg",
+    "static/media/index.css": "/website/static/media/kalam-latin-700.a0b315c9.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1565b4af.js",
+    "static/css/2.29062eef.chunk.css",
+    "static/js/2.3512cafe.chunk.js",
+    "static/css/main.e33703e5.chunk.css",
+    "static/js/main.1728fb5d.chunk.js"
+  ]
+}
