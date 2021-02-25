@@ -1,5 +1,5 @@
 {
-  "homepage": "http://anantha5491.github.io/website",
+  "homepage": "https://anantha5491.github.io/website",
   "name": "anantha-web",
   "version": "0.1.0",
   "private": true,
@@ -24,7 +24,6 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
-
   },
   "eslintConfig": {
     "extends": [
