@@ -11,23 +11,18 @@ import Talks from './pages/Talks';
 export default function Router1() {
     return (
 
-        <BrowserRouter>
-
-            <Route exact path="/page/publications">
-                <Publications />
-            </Route>
-            <Route exact path="/page/talks">
-                <Talks />
-            </Route>
-            <Route exact path="/page/about">
-                <About />
-            </Route>
-            <Route exact path="/page/blog">
-                <Blog />
-            </Route>
-           
-
-        </BrowserRouter>
+        <Route
+            path="/page"
+            render={({ match: { url } }) => (
+                <>
+                    <Route path={`${url}/`} component={Pages} exact />
+                    <Route path={`${url}/about`} component={About} />
+                    <Route path={`${url}/publications`} component={Publications} />
+                    <Route path={`${url}/talks`} component={Talks} />
+                    <Route path={`${url}/blog`} component={Blog} />
+                </>
+            )}
+        />
 
 
     )

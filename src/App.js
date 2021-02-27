@@ -18,7 +18,7 @@ import { ThemeProvider } from '@material-ui/styles';
 import createBreakpoints from "@material-ui/core/styles/createBreakpoints";
 import './App.css';
 import "typeface-kalam";
-import image from "./images/board.jpg"
+import image from "./images/black1.jpg"
 
 const BREAKPOINTS = {
 
@@ -102,6 +102,11 @@ const styles = makeStyles((theme) => ({
   },
   black: {
     backgroundImage: `url(${image})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: '100% 100%',
+    height: '100%',
+    minHeight: '100vh',
+    width:'100%'
 }
 
 }));

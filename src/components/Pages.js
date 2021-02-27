@@ -53,14 +53,22 @@ const styles = theme => ({
     },
     background: 'rgb(0 0 0 / 4%)'
   },
-  appBarShift: {
-    width: `calc(100% - 160px)`,
-    marginLeft: drawerWidth,
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
+  // appBarShift: {
+  //   width: `calc(100% - 160px)`,
+  //   marginLeft: drawerWidth,
+  //   transition: theme.transitions.create(['margin', 'width'], {
+  //     easing: theme.transitions.easing.easeOut,
+  //     duration: theme.transitions.duration.enteringScreen,
+  //   }),
+  //   [theme.breakpoints.down('md')]: {
+  //     width: `calc(100% - 16px)`,
+  //     marginLeft: '160px',
+  //     transition: theme.transitions.create(['margin', 'width'], {
+  //       easing: theme.transitions.easing.easeOut,
+  //       duration: theme.transitions.duration.enteringScreen,
+  //     }),
+  //   }
+  // },
   menuButton: {
     marginRight: theme.spacing(2),
     [theme.breakpoints.up('sm')]: {
@@ -96,11 +104,14 @@ const styles = theme => ({
     backgroundColor: "transparent"
   },
   center: {
-    flexDirection: 'column',
+    flexDirection: 'row',
     justifyContent: 'center'
   },
   headerFont: {
-    fontSize: '2rem'
+    fontSize: '2.5rem',
+    // [theme.breakpoints.down("xs")]: {
+    //   fontSize: '1.5rem'
+    // },
   },
   transparent: {
     backgroundColor: 'transparent',
@@ -130,53 +141,52 @@ media: {
 },
 font: {
 fontSize: '2rem',
-"&:hover": {
-  fontSize: '3.75rem',
-},
-[theme.breakpoints.down('sm')]: {
-  fontSize: '1rem',
-  "&:hover": {
-    fontSize: '1.75rem',
-  }
-},
-[theme.breakpoints.between('md','lg')]: {
-  fontSize: '2.5rem',
-  "&:hover": {
-    fontSize: '4.75rem',
-  }
-},
-[theme.breakpoints.up('lg')]: {
-  fontSize: '2rem',
-   "&:hover": {
-    fontSize: '3.75rem',
-  }
-},
+color: '#fafafa'
+
+// [theme.breakpoints.down('sm')]: {
+//   fontSize: '1rem',
+//   "&:hover": {
+//     fontSize: '1.25rem',
+//   }
+// },
+// [theme.breakpoints.between('md','lg')]: {
+//   fontSize: '2.5rem',
+//   "&:hover": {
+//     fontSize: '4.75rem',
+//   }
+// },
+// [theme.breakpoints.up('lg')]: {
+//   fontSize: '2rem',
+//    "&:hover": {
+//     fontSize: '3.75rem',
+//   }
+// },
 },
 icon: {
   fontSize: '2rem'
 },
-aboutButton: {
+// aboutButton: {
   
-  color: "#1cc4ce",
+//   color: "#1cc4ce",
  
-},
-homeButton: {
+// },
+// homeButton: {
   
-  color: "#fafafa",
+//   color: "#fafafa",
   
-},
-publicationsButton: {
-  color: "#ff5b35",
+// },
+// publicationsButton: {
+//   color: "#fd8c71",
   
-},
-talksButton: {
-  color: '#38ad1c',
+// },
+// talksButton: {
+//   color: '#38ad1c',
 
-},
-blogButton: {
-  color: '#e2bf0b',
+// },
+// blogButton: {
+//   color: '#e2bf0b',
  
-},
+// },
 })
 
 
@@ -205,8 +215,9 @@ class Pages extends Component {
     }
   };
 
-  drawer = (
-   
+  drawer = (props) => {
+    const { classes, location, history } = props;
+   return (
     <div>
 
       <Grid
@@ -215,14 +226,14 @@ class Pages extends Component {
         justify="flex-start                                                                                                                                         "
         alignItems="flex-start"
         spacing={1}
-        className={this.props.classes.transparent}
+        className={classes.transparent}
       >
         <Grid item xs={12}>
-        <Card className={this.props.classes.card}>
+        <Card className={classes.card}>
                                 <CardMedia
                                      classes={{
                                        
-                                        root: this.props.classes.media,
+                                        root: classes.media,
                                     }}
                                 />
                             </Card>
@@ -230,29 +241,29 @@ class Pages extends Component {
         <Grid item xs={12}>
           <List>
               
-              <ListItem className={this.props.classes.homeButton} button key='Home'  onClick={() => {this.props.history.push('/')}}>
-                <ListItemIcon><HomeIcon className={`${this.props.classes.homeButton} ${this.props.classes.font}`}/></ListItemIcon>
-                <ListItemText  classes={{primary:this.props.classes.font}} primary='Home' />
+              <ListItem className={ classes.homeButton} button key='Home'  onClick={() => { history.push('/')}}>
+                <ListItemIcon><HomeIcon className={`${ classes.homeButton} ${ classes.font}`}/></ListItemIcon>
+                <ListItemText  classes={{primary: classes.font}} primary='Home' />
               </ListItem>
-              {this.props.location.pathname.slice(this.props.location.pathname.lastIndexOf('/') + 1) !== 'about' &&
-              <ListItem className={this.props.classes.aboutButton}  button key='About'  onClick={() => {this.props.history.push('/page/about')}}>
-              <ListItemIcon><AssignmentIndOutlinedIcon className={`${this.props.classes.aboutButton} ${this.props.classes.font}`} /></ListItemIcon>
-              <ListItemText classes={{primary:this.props.classes.font}} primary='About' />
+              { location.pathname.slice( location.pathname.lastIndexOf('/') + 1) !== 'about' &&
+              <ListItem className={ classes.aboutButton}  button key='About'  onClick={() => { history.push('/page/about')}}>
+              <ListItemIcon><AssignmentIndOutlinedIcon className={`${ classes.aboutButton} ${ classes.font}`} /></ListItemIcon>
+              <ListItemText classes={{primary: classes.font}} primary='About' />
             </ListItem> }
-            {this.props.location.pathname.slice(this.props.location.pathname.lastIndexOf('/') + 1) !== 'publications' &&
-            <ListItem className={this.props.classes.publicationsButton} button key='Publications' onClick={() => {this.props.history.push('/page/publications')}}>
-            <ListItemIcon><AssignmentOutlinedIcon className={`${this.props.classes.publicationsButton} ${this.props.classes.font}`}/></ListItemIcon>
-            <ListItemText classes={{primary:this.props.classes.font}} primary='Publications' />
+            { location.pathname.slice( location.pathname.lastIndexOf('/') + 1) !== 'publications' &&
+            <ListItem className={ classes.publicationsButton} button key='Publications' onClick={() => { history.push('/page/publications')}}>
+            <ListItemIcon><AssignmentOutlinedIcon className={`${ classes.publicationsButton} ${ classes.font}`}/></ListItemIcon>
+            <ListItemText classes={{primary: classes.font}} primary='Publications' />
           </ListItem> }
-          {this.props.location.pathname.slice(this.props.location.pathname.lastIndexOf('/') + 1) !== 'talks' &&
-          <ListItem className={this.props.classes.talksButton} button key='Talks' onClick={() => {this.props.history.push('/page/talks')}}>
-          <ListItemIcon><RecordVoiceOverOutlinedIcon className={`${this.props.classes.talksButton} ${this.props.classes.fonr}`}/></ListItemIcon>
-          <ListItemText classes={{primary:this.props.classes.font}} primary='Talks' />
+          { location.pathname.slice( location.pathname.lastIndexOf('/') + 1) !== 'talks' &&
+          <ListItem className={ classes.talksButton} button key='Talks' onClick={() => { history.push('/page/talks')}}>
+          <ListItemIcon><RecordVoiceOverOutlinedIcon className={`${ classes.talksButton} ${ classes.font}`}/></ListItemIcon>
+          <ListItemText classes={{primary: classes.font}} primary='Talks' />
         </ListItem> }
-        {this.props.location.pathname.slice(this.props.location.pathname.lastIndexOf('/') + 1) !== 'blog' &&
-        <ListItem className={this.props.classes.blogButton} button key='Blog' onClick={() => {this.props.history.push('/page/blog')}}>
-          <ListItemIcon><MenuBookOutlinedIcon className={`${this.props.classes.blogButton} ${this.props.classes.font}`}/></ListItemIcon>
-          <ListItemText classes={{primary:this.props.classes.font}} primary='Blog' />
+        { location.pathname.slice( location.pathname.lastIndexOf('/') + 1) !== 'blog' &&
+        <ListItem className={ classes.blogButton} button key='Blog' onClick={() => { history.push('/page/blog')}}>
+          <ListItemIcon><MenuBookOutlinedIcon className={`${ classes.blogButton} ${ classes.font}`}/></ListItemIcon>
+          <ListItemText classes={{primary: classes.font}} primary='Blog' />
         </ListItem>}
           
           </List>
@@ -264,7 +275,7 @@ class Pages extends Component {
 
      
     </div >
-  );
+    )    };
 
   handleDrawerToggle = () => {
     this.setState({ mobileOpen: !this.state.mobileOpen })
@@ -291,7 +302,7 @@ class Pages extends Component {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" noWrap className={classes[header]}>
+            <Typography variant="h6" noWrap className={`${ classes[header]} ${ classes.headerFont}`}>
               {location.pathname.slice(location.pathname.lastIndexOf('/') + 1).toUpperCase()}
                 </Typography>
           </Toolbar>
@@ -312,7 +323,7 @@ class Pages extends Component {
                 keepMounted: true, // Better open performance on mobile.
               }}
             >
-              {this.drawer}
+              {this.drawer(this.props)}
             </Drawer>
           </Hidden>
           <Hidden xsDown implementation="css">
@@ -323,7 +334,7 @@ class Pages extends Component {
               variant="permanent"
               open
             >
-              {this.drawer}
+              {this.drawer(this.props)}
             </Drawer>
           </Hidden>
         </nav>
