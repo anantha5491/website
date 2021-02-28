@@ -27,17 +27,17 @@ const styles = theme => ({
         backgroundImage: `url(${anantha})`,
 
         backgroundPosition: 'top',
-        backgroundSize: '32rem',
+        backgroundSize: '100% 100%',
 
-        [theme.breakpoints.down("sm")]: {
-            backgroundSize: '15rem',
-        },
-        [theme.breakpoints.between('md', 'lg')]: {
-            backgroundSize: '40rem',
-        },
-        [theme.breakpoints.up('lg')]: {
-            backgroundSize: '32rem',
-        },
+        // [theme.breakpoints.down("sm")]: {
+        //     backgroundSize: '15rem',
+        // },
+        // [theme.breakpoints.between('md', 'lg')]: {
+        //     backgroundSize: '40rem',
+        // },
+        // [theme.breakpoints.up('lg')]: {
+        //     backgroundSize: '32rem',
+        // },
 
         paddingTop: '10px'
 
@@ -154,14 +154,17 @@ const styles = theme => ({
     font: {
         fontFamily: 'TuckRegular',
         textAlign: 'justify',
-        fontSize: '3rem',
+        fontSize: '3.25rem',
         [theme.breakpoints.down("sm")]: {
-            fontSize: '1.5rem'
+            fontSize: '1.7rem'
+        },
+        [theme.breakpoints.between('sm', 'md')]: {
+            fontSize: '3rem'
         },
         paddingTop: '30px',
         [theme.breakpoints.between('md', 'lg')]: {
-            paddingTop: '130px',
-            fontSize: '3.5rem',
+           // paddingTop: '130px',
+            fontSize: '4rem',
         },
         [theme.breakpoints.up('lg')]: {
             paddingTop: '20px',
@@ -225,7 +228,7 @@ class Home extends Component {
 
                         </Box>
                     </Grid>
-                    <Grid item xs={4}>
+                    <Grid item xs={5}>
                         <Card className={classes.card}>
                             <CardMedia
                                 classes={{
@@ -236,7 +239,7 @@ class Home extends Component {
                         </Card>
                     </Grid>
 
-                    <Grid item xs={8}>
+                    <Grid item xs={7}>
                         <Paper className={classes.paper1}>
 
                             <Typography variant="h5" className={classes.font}>
@@ -246,11 +249,14 @@ class Home extends Component {
                                    </div>
                                 <div>
 
-                                    I did my PhD at  <span ><a href="https://www.imsc.res.in/" target="_blank" className={classes.fontColor3}>IMSc, Chennai</a></span> on Term Modal Logic under  <span ><a href="https://www.imsc.res.in/r_ramanujam" target="_blank" className={classes.fontColor2}>Prof. R. Ramanujam.</a> </span>
-                                    Here is my <span ><a href="https://www.imsc.res.in/xmlui/bitstream/handle/123456789/452/HBNI%20Th164.pdf?sequence=1&isAllowed=y" target="_blank" className={classes.fontColor4}>
+                                    I did my PhD  under  <span ><a href="https://www.imsc.res.in/r_ramanujam" target="_blank" className={classes.fontColor2}>Prof. R. Ramanujam</a> </span> 
+                                    at  <span ><a href="https://www.imsc.res.in/" target="_blank" className={classes.fontColor3}>IMSc, Chennai</a></span>.
+                                   </div>                                 
+
+                                    Here is the <span ><a href="https://www.imsc.res.in/xmlui/bitstream/handle/123456789/452/HBNI%20Th164.pdf?sequence=1&isAllowed=y" target="_blank" className={classes.fontColor4}>
                                         thesis</a></span> and its <span className={classes.fontColor4}><a link="">summary</a></span>.
-                                   </div>
-                                <div>
+                                   
+                                   <div>
 
                                     I am broadly interested in logic, abstraction, puzzle solving and theoretical computer science.
                                    </div>

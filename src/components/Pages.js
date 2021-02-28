@@ -78,10 +78,11 @@ const styles = theme => ({
   // necessary for content to be below app bar
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
-
+    overflow: 'hidden',
     width: drawerWidth,
     [theme.breakpoints.down('sm')]: {
-      width: '160px',
+      width: '100%',
+      backgroundColor: 'rgb(0 0 0 / 60%)',
      
     },
     backgroundColor: 'transparent',
@@ -126,16 +127,16 @@ media: {
   height: '40vh',
   backgroundImage: `url(${anantha})`,
  
-  backgroundSize: '15rem',
-  [theme.breakpoints.down("xs")]: {
-      backgroundSize: '8rem',
-    },
-    [theme.breakpoints.between('md','lg')]: {
-      backgroundSize: '20rem',
-    },
-    [theme.breakpoints.up('lg')]: {
-      backgroundSize: '15rem',
-    },
+  backgroundSize: '100% 100%',
+  // [theme.breakpoints.down("xs")]: {
+  //     backgroundSize: '8rem',
+  //   },
+  //   [theme.breakpoints.between('md','lg')]: {
+  //     backgroundSize: '20rem',
+  //   },
+  //   [theme.breakpoints.up('lg')]: {
+  //     backgroundSize: '15rem',
+  //   },
    
    
 },
@@ -215,6 +216,8 @@ class Pages extends Component {
     }
   };
 
+
+
   drawer = (props) => {
     const { classes, location, history } = props;
    return (
@@ -241,30 +244,30 @@ class Pages extends Component {
         <Grid item xs={12}>
           <List>
               
-              <ListItem className={ classes.homeButton} button key='Home'  onClick={() => { history.push('/')}}>
+              <ListItem className={ classes.homeButton} button key='Home'  onClick={() => this.handleLinkClick('/')}>
                 <ListItemIcon><HomeIcon className={`${ classes.homeButton} ${ classes.font}`}/></ListItemIcon>
                 <ListItemText  classes={{primary: classes.font}} primary='Home' />
               </ListItem>
-              { location.pathname.slice( location.pathname.lastIndexOf('/') + 1) !== 'about' &&
-              <ListItem className={ classes.aboutButton}  button key='About'  onClick={() => { history.push('/page/about')}}>
+             
+              <ListItem className={ classes.aboutButton}  button key='About'  onClick={() => this.handleLinkClick('about')}>
               <ListItemIcon><AssignmentIndOutlinedIcon className={`${ classes.aboutButton} ${ classes.font}`} /></ListItemIcon>
               <ListItemText classes={{primary: classes.font}} primary='About' />
-            </ListItem> }
-            { location.pathname.slice( location.pathname.lastIndexOf('/') + 1) !== 'publications' &&
-            <ListItem className={ classes.publicationsButton} button key='Publications' onClick={() => { history.push('/page/publications')}}>
+            </ListItem> 
+           
+            <ListItem className={ classes.publicationsButton} button key='Publications' onClick={() => this.handleLinkClick('publications')}>
             <ListItemIcon><AssignmentOutlinedIcon className={`${ classes.publicationsButton} ${ classes.font}`}/></ListItemIcon>
             <ListItemText classes={{primary: classes.font}} primary='Publications' />
-          </ListItem> }
-          { location.pathname.slice( location.pathname.lastIndexOf('/') + 1) !== 'talks' &&
-          <ListItem className={ classes.talksButton} button key='Talks' onClick={() => { history.push('/page/talks')}}>
+          </ListItem> 
+          
+          <ListItem className={ classes.talksButton} button key='Talks' onClick={() => this.handleLinkClick('talks')}>
           <ListItemIcon><RecordVoiceOverOutlinedIcon className={`${ classes.talksButton} ${ classes.font}`}/></ListItemIcon>
           <ListItemText classes={{primary: classes.font}} primary='Talks' />
-        </ListItem> }
-        { location.pathname.slice( location.pathname.lastIndexOf('/') + 1) !== 'blog' &&
-        <ListItem className={ classes.blogButton} button key='Blog' onClick={() => { history.push('/page/blog')}}>
+        </ListItem> 
+        
+        <ListItem className={ classes.blogButton} button key='Blog' onClick={() => this.handleLinkClick('blog')}>
           <ListItemIcon><MenuBookOutlinedIcon className={`${ classes.blogButton} ${ classes.font}`}/></ListItemIcon>
           <ListItemText classes={{primary: classes.font}} primary='Blog' />
-        </ListItem>}
+        </ListItem>
           
           </List>
         </Grid>
@@ -280,6 +283,12 @@ class Pages extends Component {
   handleDrawerToggle = () => {
     this.setState({ mobileOpen: !this.state.mobileOpen })
   };
+
+  handleLinkClick = (path) => {
+    this.props.history.push(path)
+    this.setState({ mobileOpen: false})
+
+  }
 
   render() {
     const { classes, theme, location} = this.props;
